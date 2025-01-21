@@ -2,9 +2,16 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from msrest.authentication import CognitiveServicesCredentials
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
 import time
+import os
+from dotenv import load_dotenv
 
-endpoint = "ENTER ENDPOINT HERE"
-key = "ENTER KEY HERE"
+load_dotenv()
+
+endpoint = os.getenv('AZURE_ENDPOINT')
+key = os.getenv('AZURE_API_KEY')
+
+if not endpoint or not key:
+    raise ValueError("API credentials are not set properly")
 
 credentials = CognitiveServicesCredentials(key)
 
