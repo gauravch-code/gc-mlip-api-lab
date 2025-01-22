@@ -11,6 +11,7 @@ def home():
 # API at /api/v1/analysis/ 
 @app.route("/api/v1/analysis/", methods=['GET'])
 def analysis():
+    print("Analysis route was invoked")
     # Try to get the URI from the JSON
     try:
         get_json = request.get_json()
